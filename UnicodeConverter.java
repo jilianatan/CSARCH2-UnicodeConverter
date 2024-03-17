@@ -5,10 +5,10 @@ public class UnicodeConverter {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        System.out.println("Choose converter or translator:");
-        System.out.println("1. Unicode to UTF-8");
-        System.out.println("2. Unicode to UTF-16");
-        System.out.println("3. Unicode to UTF-32");
+        System.out.println("Choose UTF:");
+        System.out.println("1. UTF-8");
+        System.out.println("2. UTF-16");
+        System.out.println("3. UTF-32");
         System.out.print("Enter your choice: ");
         
         int choice = scanner.nextInt();
