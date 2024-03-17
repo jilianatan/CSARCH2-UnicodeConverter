@@ -1,45 +1,4 @@
-import java.util.Scanner;
-
 public class converter {
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Choose converter or translator:");
-        System.out.println("1. Unicode to UTF-8");
-        System.out.println("2. Unicode to UTF-16");
-        System.out.println("3. Unicode to UTF-32");
-        System.out.print("Enter your choice: ");
-
-        int choice = scanner.nextInt();
-        scanner.nextLine(); // consume the newline character
-
-        switch (choice) {
-            case 1:
-                System.out.print("Enter Unicode character (U+xxxx format): ");
-                String unicodeInput = scanner.nextLine();
-                String utf8Output = convertToUTF8(unicodeInput);
-                System.out.println("UTF-8 output: " + utf8Output);
-                break;
-            case 2:
-                System.out.print("Enter Unicode character (U+xxxx format): ");
-                unicodeInput = scanner.nextLine();
-                String utf16Output = convertToUTF16(unicodeInput);
-                System.out.println("UTF-16 output: " + utf16Output);
-                break;
-            case 3:
-                System.out.print("Enter Unicode character (U+xxxx format): ");
-                unicodeInput = scanner.nextLine();
-                String utf32Output = convertToUTF32(unicodeInput);
-                System.out.println("UTF-32 output: " + utf32Output);
-                break;
-            default:
-                System.out.println("Invalid choice.");
-        }
-
-        scanner.close();
-    }
-
     public static String convertToUTF8(String hexInput) {
         // Removing "U+" if present and padding with zeroes
         hexInput = hexInput.replace("U+", "").replaceAll("^0+", "");
@@ -60,10 +19,17 @@ public class converter {
             int b2 = 0x80 | ((decInput >> 6) & 0x3F); // Second byte
             int b3 = 0x80 | (decInput & 0x3F); // Third byte
             return String.format("%02X %02X %02X", b1, b2, b3); // Return all three bytes separated by space
+        } else if (decInput <= 1114111) {
+            int b1 = 0xF0 | (decInput >> 18); // First byte
+            int b2 = 0x80 | ((decInput >> 12) & 0x3F); // Second byte
+            int b3 = 0x80 | ((decInput >> 6) & 0x3F); // Third byte
+            int b4 = 0x80 | (decInput & 0x3F); // Fourth byte
+            return String.format("%02X %02X %02X %02X", b1, b2, b3, b4); // Return all four bytes separated by space
         } else {
             return "Invalid Unicode character"; // Out of UTF-8 range
         }
     }
+
 
     public static String convertToUTF16(String hexInput) {
         // Removing "U+" if present and padding with zeroes
