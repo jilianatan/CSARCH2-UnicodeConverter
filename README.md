@@ -1,5 +1,5 @@
 # CSARCH2 Simulation Project
-#### by S15 Grp 9 - Ang, Reyes, Quiñones, Suba, Tan
+#### by S15 Grp 9 - Ang, Quiñones, Reyes, Suba, Tan
 ## Unicode Converter & Translator
 ### Converter:
 #### Input: Unicode (with invalid Unicode check)
