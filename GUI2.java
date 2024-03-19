@@ -18,7 +18,7 @@ public class GUI {
     private JTextField translatorInputField;
     private converter converter;
     private translator translator;
-    private ArrayList<String> results; // Store the results
+    private ArrayList<String> results; 
     private JButton saveButton;
 
     public GUI() {
@@ -40,7 +40,7 @@ public class GUI {
         frame.add(tabbedPane, BorderLayout.CENTER);
         frame.setVisible(true);
 
-        results = new ArrayList<>(); // Initialize the results array
+        results = new ArrayList<>(); 
     }
 
     private JPanel createConverterPanel() {
@@ -56,7 +56,7 @@ public class GUI {
         panel.add(inputPanel, BorderLayout.NORTH);
     
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(5, 1));
+        buttonPanel.setLayout(new GridLayout(0, 1));
     
         JLabel label = new JLabel("Choose Converter:");
         buttonPanel.add(label);
@@ -153,7 +153,7 @@ public class GUI {
         panel.add(inputPanel, BorderLayout.NORTH);
     
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(5, 1));
+        buttonPanel.setLayout(new GridLayout(0, 1));
     
         JLabel label = new JLabel("Choose Translator:");
         buttonPanel.add(label);
