@@ -1,5 +1,5 @@
 public class translator {
-    public static String convertFromUTF8(String utf8Input) {
+    public String convertFromUTF8(String utf8Input) {
         // Validate input format (XX XX XX XX)
         if (!utf8Input.matches("^[0-9A-Fa-f]{2}( [0-9A-Fa-f]{2})+$")) {
             return "Invalid input format. Please enter XX XX XX XX format.";
@@ -60,7 +60,7 @@ public class translator {
     }
 
 
-    public static String convertFromUTF16(String utf16Input) {
+    public String convertFromUTF16(String utf16Input) {
         // Validate input format (XXXX XXXX)
         if (!utf16Input.matches("^[0-9A-Fa-f]{4} [0-9A-Fa-f]{4}$")) {
             return "Invalid input format. Please enter XXXX XXXX format.";
@@ -112,7 +112,7 @@ public class translator {
     }
 
 
-    public static String convertFromUTF32(String utf32Input) {
+    public String convertFromUTF32(String utf32Input) {
         // Split the input into separate code units
         String[] utf32CodeUnits = utf32Input.trim().split("\\s+");
         StringBuilder unicodeBuilder = new StringBuilder();

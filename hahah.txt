@@ -1,0 +1,51 @@
+Input: 10BEEF
+Result: UTF-8 output: F4 8B BB AF
+
+Input: 10BEEF
+Result: UTF-16 output: DBEF DEEF
+
+Input: 10BEEF
+Result: UTF-16 output: DBEF DEEF
+
+Input: 10BEEF
+Result: UTF-32 output: 0010BEEF
+
+Input: 10BEEF
+Result:
+UTF-8: F4 8B BB AF
+UTF-16: DBEF DEEF
+UTF-32: 0010BEEF
+
+Input: 0010 CAFE
+Result:
+UTF-8: Invalid input format. Please enter XX XX XX XX format.
+UTF-16: U+10 U+CAFE
+UTF-32: U+10CAFE
+
+Input: 0010 CAFE
+Result: Unicode output: U+10CAFE
+
+Input: 0010 CAFE
+Result: Unicode output: U+10 U+CAFE
+
+Input: 0010 CAFE
+Result: Unicode output: U+10 U+CAFE
+
+Input: 0010 CAFE
+Result: Unicode output: U+10 U+CAFE
+
+Input: 0010 CAFE
+Result: Unicode output: Invalid input format. Please enter XX XX XX XX format.
+
+Input: 0010 CAFE
+Result: Unicode output: U+10 U+CAFE
+
+Input: 0010 CAFE
+Result:
+UTF-8: Invalid input format. Please enter XX XX XX XX format.
+UTF-16: U+10 U+CAFE
+UTF-32: U+10CAFE
+
+Input: 0010 CAFE
+Result: Unicode output: U+10CAFE
+

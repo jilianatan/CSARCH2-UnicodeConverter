@@ -1,0 +1,39 @@
+Input: 10BEEF
+Result: UTF-8 output: F4 8B BB AF
+
+Input: 10BEEF
+Result: UTF-16 output: DBEF DEEF
+
+Input: 10BEEF
+Result: UTF-32 output: 0010BEEF
+
+Input: 10BEEF
+Result:
+UTF-8: F4 8B BB AF
+UTF-16: DBEF DEEF
+UTF-32: 0010BEEF
+
+Input: F8 BE CD AB
+Result: Unicode output: Invalid UTF-8 encoding
+
+Input: F8 8B BB AF
+Result: Unicode output: Invalid UTF-8 encoding
+
+Input: F4 8B BB AF
+Result: Unicode output: U+10BEEF
+
+Input: F4 8B BB AF
+Result: Unicode output: Invalid input format. Please enter XXXX XXXX format.
+
+Input: DDBE D100
+Result: Unicode output: Invalid UTF-16 encoding
+
+Input: DDBE DCDE
+Result: Unicode output: Invalid UTF-16 encoding
+
+Input: DBFF DEED
+Result: Unicode output: U+10FEED
+
+Input: 000010CAFE
+Result: Unicode output: U+10CAFE
+

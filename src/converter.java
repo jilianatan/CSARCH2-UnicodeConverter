@@ -1,5 +1,5 @@
 public class converter {
-    public static String convertToUTF8(String hexInput) {
+    public String convertToUTF8(String hexInput) {
         // Removing "U+" if present and padding with zeroes
         hexInput = hexInput.replace("U+", "").replaceAll("^0+", "");
         if (hexInput.isEmpty()) hexInput = "0";
@@ -31,7 +31,7 @@ public class converter {
     }
 
 
-    public static String convertToUTF16(String hexInput) {
+    public String convertToUTF16(String hexInput) {
         // Removing "U+" if present and padding with zeroes
         hexInput = hexInput.replace("U+", "").replaceAll("^0+", "");
         if (hexInput.isEmpty()) hexInput = "0";
@@ -52,7 +52,7 @@ public class converter {
         }
     }
 
-    public static String convertToUTF32(String hexInput) {
+    public String convertToUTF32(String hexInput) {
         // Removing "U+" if present and padding with zeroes
         hexInput = hexInput.replace("U+", "").replaceAll("^0+", "");
         if (hexInput.isEmpty()) hexInput = "0";
