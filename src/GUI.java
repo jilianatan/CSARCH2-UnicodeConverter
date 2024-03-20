@@ -26,8 +26,10 @@ public class GUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(600, 300);
         frame.setLayout(new BorderLayout());
-
+        
         tabbedPane = new JTabbedPane();
+        tabbedPane.setForeground(Color.black);
+        tabbedPane.setUI(new RoundedTabbedPaneUI());
 
         converter = new converter();
         converterPanel = createConverterPanel();
@@ -36,7 +38,7 @@ public class GUI {
         translator = new translator();
         translatorPanel = createTranslatorPanel();
         tabbedPane.addTab("Translator", translatorPanel);
-
+    
         frame.add(tabbedPane, BorderLayout.CENTER);
         frame.setVisible(true);
 
@@ -46,7 +48,6 @@ public class GUI {
     private JPanel createConverterPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-    
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new FlowLayout());
         JLabel inputLabel = new JLabel("Enter Unicode character:");
@@ -61,7 +62,7 @@ public class GUI {
         JLabel label = new JLabel("Choose Converter:");
         buttonPanel.add(label);
     
-        JButton unicodeToUTF8Button = new JButton("Unicode to UTF-8");
+        JButton unicodeToUTF8Button = new RoundButton("Unicode to UTF-8");
         unicodeToUTF8Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,7 +76,7 @@ public class GUI {
         });
         buttonPanel.add(unicodeToUTF8Button);
     
-        JButton unicodeToUTF16Button = new JButton("Unicode to UTF-16");
+        JButton unicodeToUTF16Button = new RoundButton("Unicode to UTF-16");
         unicodeToUTF16Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,7 +90,7 @@ public class GUI {
         });
         buttonPanel.add(unicodeToUTF16Button);
     
-        JButton unicodeToUTF32Button = new JButton("Unicode to UTF-32");
+        JButton unicodeToUTF32Button = new RoundButton("Unicode to UTF-32");
         unicodeToUTF32Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -103,7 +104,7 @@ public class GUI {
         });
         buttonPanel.add(unicodeToUTF32Button);
     
-        JButton unicodeToUTFButton = new JButton("Unicode to UTF-8/16/32");
+        JButton unicodeToUTFButton = new RoundButton("Unicode to UTF-8/16/32");
         unicodeToUTFButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -121,21 +122,32 @@ public class GUI {
         });
         buttonPanel.add(unicodeToUTFButton);
     
-        saveButton = new JButton("Save All Results");
+        JPanel resultAndButtonPanel = new JPanel();
+        resultAndButtonPanel.setLayout(new BoxLayout(resultAndButtonPanel, BoxLayout.Y_AXIS));
+        //resultAndButtonPanel.setBackground(Color.);
+        converterResultLabel = new JLabel("Result will be displayed here");
+        converterResultLabel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the label horizontally
+        converterResultLabel.setHorizontalAlignment(SwingConstants.CENTER); // Center the label text
+        resultAndButtonPanel.add(converterResultLabel);
+        
+        resultAndButtonPanel.add(Box.createVerticalStrut(10)); // Adjust the space here
+
+        saveButton = new RoundButton("Save All Results");
+        saveButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the button horizontally
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                saveAllResults();
+            saveAllResults();
             }
         });
-        buttonPanel.add(saveButton);
-    
+        resultAndButtonPanel.add(saveButton);
+
+        JPanel centerPanel = new JPanel(new GridBagLayout()); // Panel to center resultAndButtonPanel
+        centerPanel.add(resultAndButtonPanel);
+        //centerPanel.setBackground(Color.);
         panel.add(buttonPanel, BorderLayout.WEST);
-    
-        converterResultLabel = new JLabel("Result will be displayed here");
-        converterResultLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        panel.add(converterResultLabel, BorderLayout.CENTER);
-    
+        panel.add(centerPanel, BorderLayout.CENTER); // Center the resultAndButtonPanel
+
         return panel;
     }
     
@@ -143,7 +155,7 @@ public class GUI {
     private JPanel createTranslatorPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-    
+        
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new FlowLayout());
         JLabel inputLabel = new JLabel("Enter UTF character:");
@@ -151,14 +163,14 @@ public class GUI {
         inputPanel.add(inputLabel);
         inputPanel.add(translatorInputField);
         panel.add(inputPanel, BorderLayout.NORTH);
-    
+        
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(0, 1));
-    
+        
         JLabel label = new JLabel("Choose Translator:");
         buttonPanel.add(label);
-    
-        JButton unicodeFromUTF8Button = new JButton("UTF-8 to Unicode");
+        
+        JButton unicodeFromUTF8Button = new RoundButton("UTF-8 to Unicode");
         unicodeFromUTF8Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -171,8 +183,8 @@ public class GUI {
             }
         });
         buttonPanel.add(unicodeFromUTF8Button);
-    
-        JButton unicodeFromUTF16Button = new JButton("UTF-16 to Unicode");
+        
+        JButton unicodeFromUTF16Button = new RoundButton("UTF-16 to Unicode");
         unicodeFromUTF16Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -185,8 +197,8 @@ public class GUI {
             }
         });
         buttonPanel.add(unicodeFromUTF16Button);
-    
-        JButton unicodeFromUTF32Button = new JButton("UTF-32 to Unicode");
+        
+        JButton unicodeFromUTF32Button = new RoundButton("UTF-32 to Unicode");
         unicodeFromUTF32Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -199,25 +211,37 @@ public class GUI {
             }
         });
         buttonPanel.add(unicodeFromUTF32Button);
-    
+       
+        JPanel resultAndButtonPanel = new JPanel();
+        resultAndButtonPanel.setLayout(new BoxLayout(resultAndButtonPanel, BoxLayout.Y_AXIS));
+       
+        translatorResultLabel = new JLabel("Result will be displayed here");
+        translatorResultLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        translatorResultLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        resultAndButtonPanel.add(translatorResultLabel);
 
-        saveButton = new JButton("Save All Results");
+        resultAndButtonPanel.add(Box.createVerticalStrut(10));
+
+        saveButton = new RoundButton("Save All Results");
+        saveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveAllResults();
             }
         });
-        buttonPanel.add(saveButton);
-    
+
+        resultAndButtonPanel.add(saveButton);
+
+        JPanel centerPanel = new JPanel(new GridBagLayout());
+        centerPanel.add(resultAndButtonPanel);
+
         panel.add(buttonPanel, BorderLayout.WEST);
-    
-        translatorResultLabel = new JLabel("Result will be displayed here");
-        translatorResultLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        panel.add(translatorResultLabel, BorderLayout.CENTER);
-    
+        panel.add(centerPanel, BorderLayout.CENTER);
+
         return panel;
     }
+    
     
 
     private void saveAllResults() {
