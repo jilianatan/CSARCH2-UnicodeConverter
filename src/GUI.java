@@ -27,21 +27,26 @@ public class GUI {
         frame.setSize(600, 300);
         frame.setLayout(new BorderLayout());
         
+        // Create the main panel that holds the tabbed panes
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBackground(Color.decode("#F5F5DC")); // Change background color here
+        
         tabbedPane = new JTabbedPane();
-        tabbedPane.setForeground(Color.black);
         tabbedPane.setUI(new RoundedTabbedPaneUI());
-
+        
         converter = new converter();
         converterPanel = createConverterPanel();
         tabbedPane.addTab("Converter", converterPanel);
-
+        tabbedPane.setForeground(Color.white);
         translator = new translator();
         translatorPanel = createTranslatorPanel();
         tabbedPane.addTab("Translator", translatorPanel);
-    
-        frame.add(tabbedPane, BorderLayout.CENTER);
-        frame.setVisible(true);
+        
+        mainPanel.add(tabbedPane, BorderLayout.CENTER); // Add tabbed pane to the main panel
 
+        frame.add(mainPanel, BorderLayout.CENTER); // Add the main panel to the frame
+        frame.setVisible(true);
+        
         results = new ArrayList<>(); 
     }
 
@@ -50,7 +55,9 @@ public class GUI {
         panel.setLayout(new BorderLayout());
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new FlowLayout());
+        inputPanel.setBackground(Color.decode("#F5F5DC"));;
         JLabel inputLabel = new JLabel("Enter Unicode character:");
+        inputLabel.setForeground(Color.decode("#665651"));
         converterInputField = new JTextField(10);
         inputPanel.add(inputLabel);
         inputPanel.add(converterInputField);
@@ -58,11 +65,13 @@ public class GUI {
     
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(0, 1));
-    
+        buttonPanel.setBackground(Color.decode("#F5F5DC"));;
         JLabel label = new JLabel("Choose Converter:");
+        label.setForeground(Color.decode("#665651"));
         buttonPanel.add(label);
     
         JButton unicodeToUTF8Button = new RoundButton("Unicode to UTF-8");
+        unicodeToUTF8Button.setForeground(Color.white);
         unicodeToUTF8Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -77,6 +86,7 @@ public class GUI {
         buttonPanel.add(unicodeToUTF8Button);
     
         JButton unicodeToUTF16Button = new RoundButton("Unicode to UTF-16");
+        unicodeToUTF16Button.setForeground(Color.white);
         unicodeToUTF16Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -91,6 +101,7 @@ public class GUI {
         buttonPanel.add(unicodeToUTF16Button);
     
         JButton unicodeToUTF32Button = new RoundButton("Unicode to UTF-32");
+        unicodeToUTF32Button.setForeground(Color.white);
         unicodeToUTF32Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -105,6 +116,7 @@ public class GUI {
         buttonPanel.add(unicodeToUTF32Button);
     
         JButton unicodeToUTFButton = new RoundButton("Unicode to UTF-8/16/32");
+        unicodeToUTFButton.setForeground(Color.white);
         unicodeToUTFButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -124,8 +136,9 @@ public class GUI {
     
         JPanel resultAndButtonPanel = new JPanel();
         resultAndButtonPanel.setLayout(new BoxLayout(resultAndButtonPanel, BoxLayout.Y_AXIS));
-        //resultAndButtonPanel.setBackground(Color.);
+        resultAndButtonPanel.setBackground(Color.decode("#F5F5DC"));;
         converterResultLabel = new JLabel("Result will be displayed here");
+        converterResultLabel.setForeground(Color.decode("#665651"));
         converterResultLabel.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the label horizontally
         converterResultLabel.setHorizontalAlignment(SwingConstants.CENTER); // Center the label text
         resultAndButtonPanel.add(converterResultLabel);
@@ -133,6 +146,7 @@ public class GUI {
         resultAndButtonPanel.add(Box.createVerticalStrut(10)); // Adjust the space here
 
         saveButton = new RoundButton("Save All Results");
+        saveButton.setForeground(Color.white);
         saveButton.setAlignmentX(Component.CENTER_ALIGNMENT); // Center the button horizontally
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -144,7 +158,7 @@ public class GUI {
 
         JPanel centerPanel = new JPanel(new GridBagLayout()); // Panel to center resultAndButtonPanel
         centerPanel.add(resultAndButtonPanel);
-        //centerPanel.setBackground(Color.);
+        centerPanel.setBackground(Color.decode("#F5F5DC"));;
         panel.add(buttonPanel, BorderLayout.WEST);
         panel.add(centerPanel, BorderLayout.CENTER); // Center the resultAndButtonPanel
 
@@ -158,7 +172,9 @@ public class GUI {
         
         JPanel inputPanel = new JPanel();
         inputPanel.setLayout(new FlowLayout());
+        inputPanel.setBackground(Color.decode("#F5F5DC"));;
         JLabel inputLabel = new JLabel("Enter UTF character:");
+        inputLabel.setForeground(Color.decode("#665651"));
         translatorInputField = new JTextField(10);
         inputPanel.add(inputLabel);
         inputPanel.add(translatorInputField);
@@ -166,11 +182,15 @@ public class GUI {
         
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(0, 1));
-        
+        buttonPanel.setBackground(Color.decode("#F5F5DC"));;
+
         JLabel label = new JLabel("Choose Translator:");
+        label.setForeground(Color.decode("#665651"));
+
         buttonPanel.add(label);
         
         JButton unicodeFromUTF8Button = new RoundButton("UTF-8 to Unicode");
+        unicodeFromUTF8Button.setForeground(Color.white);
         unicodeFromUTF8Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -185,6 +205,7 @@ public class GUI {
         buttonPanel.add(unicodeFromUTF8Button);
         
         JButton unicodeFromUTF16Button = new RoundButton("UTF-16 to Unicode");
+        unicodeFromUTF16Button.setForeground(Color.white);
         unicodeFromUTF16Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -199,6 +220,7 @@ public class GUI {
         buttonPanel.add(unicodeFromUTF16Button);
         
         JButton unicodeFromUTF32Button = new RoundButton("UTF-32 to Unicode");
+        unicodeFromUTF32Button.setForeground(Color.white);
         unicodeFromUTF32Button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -214,8 +236,9 @@ public class GUI {
        
         JPanel resultAndButtonPanel = new JPanel();
         resultAndButtonPanel.setLayout(new BoxLayout(resultAndButtonPanel, BoxLayout.Y_AXIS));
-       
+        resultAndButtonPanel.setBackground(Color.decode("#F5F5DC"));
         translatorResultLabel = new JLabel("Result will be displayed here");
+        translatorResultLabel.setForeground(Color.decode("#665651"));
         translatorResultLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         translatorResultLabel.setHorizontalAlignment(SwingConstants.CENTER);
         resultAndButtonPanel.add(translatorResultLabel);
@@ -223,6 +246,7 @@ public class GUI {
         resultAndButtonPanel.add(Box.createVerticalStrut(10));
 
         saveButton = new RoundButton("Save All Results");
+        saveButton.setForeground(Color.white);
         saveButton.setAlignmentX(Component.CENTER_ALIGNMENT);
         saveButton.addActionListener(new ActionListener() {
             @Override
@@ -235,7 +259,7 @@ public class GUI {
 
         JPanel centerPanel = new JPanel(new GridBagLayout());
         centerPanel.add(resultAndButtonPanel);
-
+        centerPanel.setBackground(Color.decode("#F5F5DC"));
         panel.add(buttonPanel, BorderLayout.WEST);
         panel.add(centerPanel, BorderLayout.CENTER);
 

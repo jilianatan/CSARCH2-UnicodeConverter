@@ -5,12 +5,12 @@ import java.awt.event.MouseEvent;
 
 public class RoundButton extends JButton {
 
-    private Color defaultColor = new Color(200, 200, 200);
-    private Color hoverColor = new Color(230, 230, 230);
+    private Color defaultColor = new Color(102,86,81);
+    private Color hoverColor = new Color(153, 128, 121);
 
     public RoundButton(String label) {
         super(label);
-        setBackground(Color.LIGHT_GRAY);
+        setBackground(Color.decode("#665651"));
         setContentAreaFilled(false); // Ensure the button is transparent
         setForeground(Color.BLACK); // Set text color to black
         setFont(new Font("Arial", Font.BOLD, 12)); // Set font
