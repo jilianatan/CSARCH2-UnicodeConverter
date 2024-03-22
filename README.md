@@ -8,3 +8,5 @@
 #### Input: either UTF-8; UTF-16 or UTF-32
 #### Output: Unicode code point
 ##### *Both with an option to output in textfile
+
+## Video Documentation Link: https://youtu.be/Q4DGw5i-27M
