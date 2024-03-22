@@ -11,7 +11,7 @@ public class RoundedTabbedPaneUI extends BasicTabbedPaneUI {
                                       int tabIndex, int x, int y, int w, int h,
                                       boolean isSelected) {
         Graphics2D g2 = (Graphics2D) g.create();
-        g2.setColor(Color.lightGray); // Background color of the tab
+        g2.setColor(Color.decode("#665651")); // Background color of the tab
         g2.fillRoundRect(x, y, w, h, arc, arc); // Draw a rounded rectangle for tab background
         g2.dispose();
     }
@@ -19,25 +19,29 @@ public class RoundedTabbedPaneUI extends BasicTabbedPaneUI {
     @Override
     protected void paintContentBorderTopEdge(Graphics g, int tabPlacement,
                                              int selectedIndex, int x, int y, int w, int h) {
-        // Don't paint the content border top edge
+        g.setColor(Color.WHITE); // Set border color to white
+        g.drawLine(x, y, x + w - 1, y); // Draw top border line
     }
 
     @Override
     protected void paintContentBorderLeftEdge(Graphics g, int tabPlacement,
                                               int selectedIndex, int x, int y, int w, int h) {
-        // Don't paint the content border left edge
+        g.setColor(Color.WHITE); // Set border color to white
+        g.drawLine(x, y, x, y + h - 1); // Draw left border line
     }
 
     @Override
     protected void paintContentBorderBottomEdge(Graphics g, int tabPlacement,
                                                 int selectedIndex, int x, int y, int w, int h) {
-        // Don't paint the content border bottom edge
+        g.setColor(Color.WHITE); // Set border color to white
+        g.drawLine(x, y + h - 1, x + w - 1, y + h - 1); // Draw bottom border line
     }
 
     @Override
     protected void paintContentBorderRightEdge(Graphics g, int tabPlacement,
                                                int selectedIndex, int x, int y, int w, int h) {
-        // Don't paint the content border right edge
+        g.setColor(Color.WHITE); // Set border color to white
+        g.drawLine(x + w - 1, y, x + w - 1, y + h - 1); // Draw right border line
     }
 
 }

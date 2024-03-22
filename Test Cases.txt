@@ -1,0 +1,114 @@
+Input: U+10FEED
+Result: UTF-8 output: F4 8F BB AD
+
+Input: U+10FEED
+Result: UTF-16 output: DBFF DEED
+
+Input: U+10FEED
+Result: UTF-32 output: 0010FEED
+
+Input: U+10FEED
+Result:
+UTF-8: F4 8F BB AD
+UTF-16: DBFF DEED
+UTF-32: 0010FEED
+
+Input: 10BEEF
+Result: UTF-8 output: F4 8B BB AF
+
+Input: 10BEEF
+Result: UTF-16 output: DBEF DEEF
+
+Input: 10BEEF
+Result: UTF-32 output: 0010BEEF
+
+Input: 10BEEF
+Result:
+UTF-8: F4 8B BB AF
+UTF-16: DBEF DEEF
+UTF-32: 0010BEEF
+
+Input: AD100
+Result: UTF-8 output: F2 AD 84 80
+
+Input: AD100
+Result: UTF-16 output: DA74 DD00
+
+Input: AD100
+Result: UTF-32 output: 000AD100
+
+Input: AD100
+Result:
+UTF-8: F2 AD 84 80
+UTF-16: DA74 DD00
+UTF-32: 000AD100
+
+Input: 21CAFE
+Result: UTF-8 output: Invalid Unicode character
+
+Input: 21CAFE
+Result: UTF-8 output: Invalid Unicode character
+
+Input: 21CAFE
+Result: UTF-16 output: Invalid Unicode character
+
+Input: 21CAFE
+Result: UTF-32 output: 0021CAFE
+
+Input: 21CAFE
+Result:
+UTF-8: Invalid Unicode character
+UTF-16: Invalid Unicode character
+UTF-32: 0021CAFE
+
+Input: WHIDHEIH
+Result: UTF-8 output: Invalid! Please enter a valid hexadecimal Unicode character.
+
+Input: WHIDHEIH
+Result: UTF-16 output: Invalid! Please enter a valid hexadecimal Unicode character.
+
+Input: WHIDHEIH
+Result: UTF-32 output: Invalid! Please enter a valid hexadecimal Unicode character.
+
+Input: WHIDHEIH
+Result:
+UTF-8: Invalid! Please enter a valid hexadecimal Unicode character.
+UTF-16: Invalid! Please enter a valid hexadecimal Unicode character.
+UTF-32: Invalid! Please enter a valid hexadecimal Unicode character.
+
+Input: F4 8B AA BE
+Result: Unicode output: U+10BABE
+
+Input: DAFF DCCD
+Result: Unicode output: U+CFCCD
+
+Input: 0234CAFE
+Result: Unicode output: U+234CAFE
+
+Input: F8 4B CD AE
+Result: Unicode output: Invalid UTF-8 encoding
+
+Input: DAFF AEED
+Result: Unicode output: Invalid UTF-16 encoding
+
+Input: F48BAABE
+Result: Unicode output: Invalid input format. Please enter XX XX XX XX format.
+
+Input: 12@ud3hd2
+Result: Unicode output: Invalid input format. Please enter XX XX XX XX format.
+
+Input: 12@ud3hd2
+Result: Unicode output: Invalid input format. Please enter XXXX XXXX format.
+
+Input: 12@ud3hd2
+Result: Unicode output: Invalid input format
+
+Input: DBFFDEDDE
+Result: Unicode output: Invalid input format
+
+Input: DBFFDEDDE
+Result: Unicode output: Invalid input format. Please enter XXXX XXXX format.
+
+Input: DBFFDEDDE
+Result: Unicode output: Invalid input format. Please enter XX XX XX XX format.
+
